@@ -1,0 +1,77 @@
+.drawer_menu{
+  display: none;
+  .ant-drawer-body{
+    padding: 0;
+    background: #2A3749;
+  }
+  .logo{
+    margin: 24px 30px;
+    width: 185px;
+    height: 32px;
+  }
+  .logo_line {
+    margin-bottom: 24px;
+    width: 260px;
+    height: 1px;
+    background: rgba(255, 255, 255, 0.1);
+  }
+  color: #ffffff;
+  .menu-li{
+    display: flex;
+    flex-direction: column;
+    padding: 30px;
+    a {
+      display: inline-block;
+      margin-bottom: 40px;
+      font-size: 16px;
+      font-family: PingFangSC-Semibold, PingFang SC;
+      font-weight: 600;
+      color: #FFF;
+      line-height: 16px;
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+  }
+  .menu_footer {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    display: flex;
+    padding: 24px 30px;
+    width: 100%;
+    height: 72px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);;
+    .language {
+      margin-right: 36px;
+      width: 24px;
+      height: 24px;
+      cursor: pointer;
+      svg {
+        fill: #fff;
+      }
+      &:hover {
+        svg {
+          fill: #172E45;
+        }
+      }
+    }
+    .wallet {
+      width: 24px;
+      height: 24px;
+      svg {
+        fill: #fff;
+      }
+      &:hover {
+        svg {
+          fill: #172E45;
+        }
+      }
+    }
+  }
+}
+@media (max-width: 749px){
+  .drawer_menu{
+    display: block;
+  }
+}
