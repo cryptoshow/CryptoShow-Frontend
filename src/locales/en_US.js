@@ -44,6 +44,7 @@ const EN = {
   home_text_26: 'New',
   home_text_27: 'Art',
   home_text_28: 'Music',
+  home_text_29: 'Limited Edition',
   home_text_30: 'The Virtual World',
   home_text_32: 'Collectibles',
   home_text_33: 'Sporting',

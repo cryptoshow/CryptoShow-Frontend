@@ -44,6 +44,7 @@ const ZH = {
   home_text_26: '新的',
   home_text_27: '艺术',
   home_text_28: '音乐',
+  home_text_29: '典藏版',
   home_text_30: '虚拟世界',
   home_text_32: '收藏品',
   home_text_33: '运动',
