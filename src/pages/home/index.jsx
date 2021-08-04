@@ -25,12 +25,12 @@ import Right_Pic_H5 from '../../assets/image/home/right_pic_h5@2x.png'
 import Mechanism_1 from '../../assets/image/home/mechanism_1@2x.png'
 
 const Home = ({changeLanguage: changeLanguage_, language}) => {
-  const connectWallet = useConnectWallet()
-  const {chainId, active} = useWeb3React()
-  const onConnect = () => {
-    connectWallet(injected, ChainId.MATIC).then(() => {
-    })
-  }
+  // const connectWallet = useConnectWallet()
+  // const {chainId, active} = useWeb3React()
+  // const onConnect = () => {
+  //   connectWallet(injected, ChainId.MATIC).then(() => {
+  //   })
+  // }
   return (
     <div className='home-page'>
       <Banner />
@@ -162,7 +162,7 @@ const Home = ({changeLanguage: changeLanguage_, language}) => {
           <img className='left_pic_h5' src={Right_Pic_H5} />
         </div>
       </div>
-      <div className='home-page_module_5'>
+      {/* <div className='home-page_module_5'>
         <div className='home-page_module_5_box'>
           <h2>
             <FormattedMessage id='home_text_20' />
@@ -262,7 +262,7 @@ const Home = ({changeLanguage: changeLanguage_, language}) => {
             <img src={Mechanism_1} />
           </div>
         </div>
-      </div>
+      </div> */}
 
       <Footer />
       {/* <span onClick={() => changeLanguage_({language: language === 'zh' ? 'en' : 'zh'})}>

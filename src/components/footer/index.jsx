@@ -59,14 +59,11 @@ const Footer = (props) => {
                 <li><a><FormattedMessage id='home_text_26' /></a></li>
                 <li><a><FormattedMessage id='home_text_27' /></a></li>
                 <li><a><FormattedMessage id='home_text_28' /></a></li>
-                <li><a><FormattedMessage id='home_text_29' /></a></li>
               </ul>
               <ul>
                 <li><a><FormattedMessage id='home_text_30' /></a></li>
-                <li><a><FormattedMessage id='home_text_31' /></a></li>
                 <li><a><FormattedMessage id='home_text_32' /></a></li>
                 <li><a><FormattedMessage id='home_text_33' /></a></li>
-                <li><a><FormattedMessage id='home_text_34' /></a></li>
               </ul>
             </div>
           </div>
@@ -76,7 +73,13 @@ const Footer = (props) => {
               <ul>
                 <li><a><FormattedMessage id='home_text_36' /></a></li>
                 <li><a><FormattedMessage id='home_text_37' /></a></li>
-                <li><a><FormattedMessage id='home_text_38' /></a></li>
+              </ul>
+            </div>
+          </div>
+          <div>
+            <span><FormattedMessage id='home_text_38' /></span>
+            <div className='list'>
+              <ul>
                 <li><a><FormattedMessage id='home_text_39' /></a></li>
               </ul>
             </div>
@@ -86,39 +89,13 @@ const Footer = (props) => {
             <div className='list'>
               <ul>
                 <li><a><FormattedMessage id='home_text_41' /></a></li>
-                <li><a><FormattedMessage id='home_text_42' /></a></li>
-              </ul>
-            </div>
-          </div>
-          <div>
-            <span><FormattedMessage id='home_text_43' /></span>
-            <div className='list'>
-              <ul>
-                <li><a><FormattedMessage id='home_text_44' /></a></li>
-                <li><a><FormattedMessage id='home_text_45' /></a></li>
-                <li><a><FormattedMessage id='home_text_46' /></a></li>
-                <li><a><FormattedMessage id='home_text_47' /></a></li>
-              </ul>
-              <ul>
-                <li><a><FormattedMessage id='home_text_48' /></a></li>
-                <li><a><FormattedMessage id='home_text_49' /></a></li>
-                <li><a><FormattedMessage id='home_text_50' /></a></li>
-              </ul>
-            </div>
-          </div>
-          <div>
-            <span><FormattedMessage id='home_text_51' /></span>
-            <div className='list'>
-              <ul>
-                <li><a><FormattedMessage id='home_text_52' /></a></li>
-                <li><a><FormattedMessage id='home_text_53' /></a></li>
               </ul>
             </div>
           </div>
         </div>
         <div className='footer_content_line_bottom'></div>
         <div className='footer_content_bottom'>
-          <span>Ⓒ2018-2021 Ozone Networks，Inc</span>
+          <span>Ⓒ2021 CRYPTOSHOW FOUNDATION LTD.</span>
           <p>
             <a><FormattedMessage id='home_text_54' /></a>
             <a><FormattedMessage id='home_text_55' /></a>
@@ -133,35 +110,19 @@ const Footer = (props) => {
             <Menu.Item key="2"><FormattedMessage id='home_text_26' /></Menu.Item>
             <Menu.Item key="3"><FormattedMessage id='home_text_27' /></Menu.Item>
             <Menu.Item key="4"><FormattedMessage id='home_text_28' /></Menu.Item>
-            <Menu.Item key="5"><FormattedMessage id='home_text_29' /></Menu.Item>
-            <Menu.Item key="6"><FormattedMessage id='home_text_30' /></Menu.Item>
-            <Menu.Item key="7"><FormattedMessage id='home_text_31' /></Menu.Item>
-            <Menu.Item key="8"><FormattedMessage id='home_text_32' /></Menu.Item>
-            <Menu.Item key="9"><FormattedMessage id='home_text_33' /></Menu.Item>
-            <Menu.Item key="10"><FormattedMessage id='home_text_34' /></Menu.Item>
+            <Menu.Item key="8"><FormattedMessage id='home_text_30' /></Menu.Item>
+            <Menu.Item key="9"><FormattedMessage id='home_text_32' /></Menu.Item>
+            <Menu.Item key="10"><FormattedMessage id='home_text_33' /></Menu.Item>
           </SubMenu>
-          <SubMenu key="sub2" title={<FormattedMessage id='home_text_35' />}>
-            <Menu.Item key="11"><FormattedMessage id='home_text_36' /></Menu.Item>
-            <Menu.Item key="12"><FormattedMessage id='home_text_37' /></Menu.Item>
-            <Menu.Item key="13"><FormattedMessage id='home_text_38' /></Menu.Item>
-            <Menu.Item key="14"><FormattedMessage id='home_text_39' /></Menu.Item>
+          <SubMenu key="sub3" title={<FormattedMessage id='home_text_35' />}>
+            <Menu.Item key="15"><FormattedMessage id='home_text_36' /></Menu.Item>
+            <Menu.Item key="16"><FormattedMessage id='home_text_37' /></Menu.Item>
           </SubMenu>
-          <SubMenu key="sub3" title={<FormattedMessage id='home_text_40' />}>
-            <Menu.Item key="15"><FormattedMessage id='home_text_41' /></Menu.Item>
-            <Menu.Item key="16"><FormattedMessage id='home_text_42' /></Menu.Item>
+          <SubMenu key="sub4" title={<FormattedMessage id='home_text_38' />}>
+            <Menu.Item key="17"><FormattedMessage id='home_text_39' /></Menu.Item>
           </SubMenu>
-          <SubMenu key="sub4" title={<FormattedMessage id='home_text_43' />}>
-            <Menu.Item key="17"><FormattedMessage id='home_text_44' /></Menu.Item>
-            <Menu.Item key="18"><FormattedMessage id='home_text_45' /></Menu.Item>
-            <Menu.Item key="19"><FormattedMessage id='home_text_46' /></Menu.Item>
-            <Menu.Item key="20"><FormattedMessage id='home_text_47' /></Menu.Item>
-            <Menu.Item key="21"><FormattedMessage id='home_text_48' /></Menu.Item>
-            <Menu.Item key="22"><FormattedMessage id='home_text_49' /></Menu.Item>
-            <Menu.Item key="23"><FormattedMessage id='home_text_50' /></Menu.Item>
-          </SubMenu>
-          <SubMenu key="sub5" title={<FormattedMessage id='home_text_51' />}>
-            <Menu.Item key="24"><FormattedMessage id='home_text_52' /></Menu.Item>
-            <Menu.Item key="25"><FormattedMessage id='home_text_53' /></Menu.Item>
+          <SubMenu key="sub5" title={<FormattedMessage id='home_text_40' />}>
+            <Menu.Item key="24"><FormattedMessage id='home_text_41' /></Menu.Item>
           </SubMenu>
         </Menu>
         <div className='footer_about'>
@@ -191,7 +152,7 @@ const Footer = (props) => {
             </p>
           </div>
           <div className='footer_about_bottom'>
-            <span>Ⓒ2018-2021 Ozone Networks，Inc</span>
+            <span>Ⓒ2021 CRYPTOSHOW FOUNDATION LTD.</span>
             <p>
               <a><FormattedMessage id='home_text_54' /></a>
               <a><FormattedMessage id='home_text_55' /></a>
