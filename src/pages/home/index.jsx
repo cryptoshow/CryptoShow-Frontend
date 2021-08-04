@@ -176,8 +176,8 @@ const Home = ({changeLanguage: changeLanguage_, language}) => {
               <FormattedMessage id='home_text_19' />
             </p>
           </div>
-          <img src={Right_Pic} />
-          <img className='left_pic_h5' src={Right_Pic_H5} />
+          <img style={{width: '402px', height: '350px'}} src={Right_Pic} />
+          <img style={{ width: '228px', height: '198px' }} className='left_pic_h5' src={Right_Pic_H5} />
         </div>
       </div>
       {/* <div className='home-page_module_5'>
