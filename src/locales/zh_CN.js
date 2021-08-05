@@ -52,7 +52,7 @@ const ZH = {
   home_text_36: '什么是NDR',
   home_text_37: '如何NDR',
   home_text_38: '挖矿',
-  home_text_39: '关于NDRs挖矿',
+  home_text_39: '关于NDRs挖矿',
   home_text_40: '众筹',
   home_text_41: '关于众筹',
   home_text_54: '免责声明',
