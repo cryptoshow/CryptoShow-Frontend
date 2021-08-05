@@ -45,7 +45,8 @@ const Header = ({ changeLanguage: changeLanguage_, language }) => {
             <div className='header_link_nav'>
               {
                 navList.map((item) => (
-                  <Link to={item.path} key={item.path}>{item.name}</Link>
+                  // to = { item.path }
+                  <Link to='' key={item.path}>{item.name}</Link>
                 ))
               }
             </div>

@@ -12,7 +12,7 @@ const ZH = {
   banner_text_6: '在主页上获得精选',
   home_text_1: '独家NFT',
   home_text_2: '精美的照片',
-  home_text_3: '典藏版：100/1 NFT 由世界著名画家制作',
+  home_text_3: '100/1 NFT 由世界著名画家制作',
   home_text_4: '前往',
   home_text_5: '创建和出售您的NFT',
   home_text_6: '设置您的钱包',

@@ -135,7 +135,7 @@
         display: flex;
         align-items: center;
         flex-direction: column;
-        width: 268px;
+        width: 270px;
         img {
           width: 60px;
           height: 60px;
@@ -301,10 +301,82 @@
   }
 }
 
+@media (min-width: 750px) and (max-width: 1460px) {
+  .home-page {
+     &_module_4 {
+      position: relative;
+      padding: 160px 0 0;
+      width: 100%;
+      min-width: 1180px;
+      height: 1560px;
+      .left_content {
+        position: absolute;
+        right: 0;
+        display: flex;
+        align-items: center;
+        padding: 0 12px 0 132px;
+        width: 80%;
+        height: 520px;
+        border-radius: 270px 0 0 270px;
+        background: linear-gradient(225deg, #C2FFAD 0%, #18B196 100%);
+        img {
+          margin-right: 20px;
+          width: 430px;
+          height: 318px;
+        }
+      }
+      .left_pic_h5 {
+        display: none;
+      }
+      .right_content {
+        position: absolute;
+        left: 0;
+        top: 840px;
+        display: flex;
+        align-items: center;
+        padding: 0 132px 0 12px;
+        width: 80%;
+        height: 520px;
+        border-radius: 0 270px 270px 0;
+        background: linear-gradient(225deg, #C2FFAD 0%, #18B196 100%);
+        img {
+          width: 430px;
+          height: 318px;
+        }
+      }
+      .left_content_box {
+        display: flex;
+        flex-direction: column;
+        width: 540px;
+        .left_content_title {
+          margin: 0 0 30px;
+          font-size: 30px;
+          font-family: PingFangSC-Medium, PingFang SC;
+          font-weight: 500;
+          color: #172E45;
+          line-height: 56px;
+        }
+        .left_content_tip {
+          margin: 0;
+          font-size: 14px;
+          font-family: PingFang-SC-Medium, PingFang-SC;
+          font-weight: 500;
+          color: #172E45;
+          line-height: 26px;
+        }
+      }
+      .right_content_box {
+        margin-left: auto;
+      }
+    }
+  }
+}
+
 @media (max-width: 749px) {
   .home-page{
     &_box {
       width: 100%;
+      min-width: 375px;
     }
     &_module {
       width: 100%;
@@ -326,6 +398,7 @@
     &_module_1 {
       position: relative;
       height: 412px;
+      width: 100%;
       overflow: hidden;
     }
     &_module_1_content {
@@ -520,6 +593,7 @@
       padding: 0 24px;
       margin: 0 auto;
       width: 100%;
+      min-width: 375px;
       .left_content {
         display: flex;
         align-items: center;

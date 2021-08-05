@@ -43,7 +43,7 @@ const Home = ({changeLanguage: changeLanguage_, language}) => {
             <div className='module_1_pic'>
               <img src={NFT1} />
               <p className='collect'>
-                <svg t="1628076356113" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="1969" width="20" height="20">
+                <svg t="1628076356113" className="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="1969" width="20" height="20">
                   <path d="M540.416 760.917333l-122.794667 64.512A85.333333 85.333333 0 0 1 293.802667 735.573333l23.466666-136.789333-99.413333-96.853333a85.333333 85.333333 0 0 1 47.36-145.493334l137.301333-19.968 61.44-124.416a85.333333 85.333333 0 0 1 153.002667 0l61.44 124.416 137.301333 19.968a85.333333 85.333333 0 0 1 47.274667 145.493334L763.733333 598.698667l23.466667 136.789333a85.333333 85.333333 0 0 1-123.818667 89.941333l-122.88-64.512z" p-id="1970"></path>
                 </svg>
                 <FormattedMessage id='home_text_29' />
@@ -61,7 +61,7 @@ const Home = ({changeLanguage: changeLanguage_, language}) => {
             <div className='module_1_pic module_1_pic_active'>
               <img src={NFT2} />
               <p className='collect'>
-                <svg t="1628076356113" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="1969" width="20" height="20">
+                <svg t="1628076356113" className="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="1969" width="20" height="20">
                   <path d="M540.416 760.917333l-122.794667 64.512A85.333333 85.333333 0 0 1 293.802667 735.573333l23.466666-136.789333-99.413333-96.853333a85.333333 85.333333 0 0 1 47.36-145.493334l137.301333-19.968 61.44-124.416a85.333333 85.333333 0 0 1 153.002667 0l61.44 124.416 137.301333 19.968a85.333333 85.333333 0 0 1 47.274667 145.493334L763.733333 598.698667l23.466667 136.789333a85.333333 85.333333 0 0 1-123.818667 89.941333l-122.88-64.512z" p-id="1970"></path>
                 </svg>
                 <FormattedMessage id='home_text_29' />
@@ -79,7 +79,7 @@ const Home = ({changeLanguage: changeLanguage_, language}) => {
             <div className='module_1_pic'>
               <img src={NFT3} />
               <p className='collect'>
-                <svg t="1628076356113" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="1969" width="20" height="20">
+                <svg t="1628076356113" className="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="1969" width="20" height="20">
                   <path d="M540.416 760.917333l-122.794667 64.512A85.333333 85.333333 0 0 1 293.802667 735.573333l23.466666-136.789333-99.413333-96.853333a85.333333 85.333333 0 0 1 47.36-145.493334l137.301333-19.968 61.44-124.416a85.333333 85.333333 0 0 1 153.002667 0l61.44 124.416 137.301333 19.968a85.333333 85.333333 0 0 1 47.274667 145.493334L763.733333 598.698667l23.466667 136.789333a85.333333 85.333333 0 0 1-123.818667 89.941333l-122.88-64.512z" p-id="1970"></path>
                 </svg>
                 <FormattedMessage id='home_text_29' />
