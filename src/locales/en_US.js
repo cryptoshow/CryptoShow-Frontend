@@ -15,16 +15,16 @@ const EN = {
   home_text_3: '100/1 Discover and Collect NFT',
   home_text_4: 'Access',
   home_text_5: 'Create And Sell Your NFT',
-  home_text_6: 'Set Up Your Wallet',
+  home_text_6: 'Set Up Wallet',
   home_text_7:
   'After setting up the wallet of your choice, click the wallet icon in the upper right corner to connect it to CryptoShow',
-  home_text_8: 'Create Your Collection',
+  home_text_8: 'Create Collection',
   home_text_9:
   'Click Create and set up your collection. Add social links, descriptions, profiles, and banner images, and set up secondary sales fees',
-  home_text_10: 'Add Your NFT',
+  home_text_10: 'Add NFT',
   home_text_11:
   'Upload your work (images, video, audio, or 3D artwork), add titles and descriptions, and customize your NFTs with properties, statistics, and unlockable content',
-  home_text_12: 'List them for sale',
+  home_text_12: 'List And Sale',
   home_text_13:
   'Choose between auctions, fixed-price listings, and reduced-price listings',
   home_text_14: 'NFT Assetization - Depository Transactions',
