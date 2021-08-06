@@ -7,7 +7,7 @@ const ZH = {
   banner_text_2: '全球首个去中心化无许可的NFT拍卖与存托交易平台',
   banner_text_3:
     'CryptoShow将部署在币安智能链(BSC)，支持BEP-721和BEP-721标准的数字资产买卖，用户可以通过定价发行、多形式拍卖、NDR、AMM等方式进行资产赋能和交易，同时配套多种流动性提升解决方案。',
-  banner_text_4: '白皮书',
+  banner_text_4: '了解更多',
   banner_text_5: '审计报告',
   banner_text_6: '在主页上获得精选',
   home_text_1: '独家NFT',

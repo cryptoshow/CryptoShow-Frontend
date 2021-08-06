@@ -27,9 +27,9 @@ const Banner = (props) => {
             <a>
               <FormattedMessage id='banner_text_4' />
             </a>
-            <a>
+            {/* <a>
               <FormattedMessage id='banner_text_5' />
-            </a>
+            </a> */}
           </div>
           <a className='audit_report'>
             <FormattedMessage id='banner_text_6' />
