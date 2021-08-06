@@ -83,7 +83,7 @@ const Footer = (props) => {
                   ></path>
                 </svg>
               </a>
-              <a href='https://medium.com/@cryptoshowart' target='_blank'>
+              <a href='https://cryptoshowart.medium.com/' target='_blank'>
                 <svg
                   t='1627962641114'
                   className='icon'
@@ -364,7 +364,7 @@ const Footer = (props) => {
                   ></path>
                 </svg>
               </a>
-              <a href='https://medium.com/@cryptoshowart' target='_blank'>
+              <a href='https://cryptoshowart.medium.com/' target='_blank'>
                 <svg
                   t='1627962641114'
                   className='icon'
