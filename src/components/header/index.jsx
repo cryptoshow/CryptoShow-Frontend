@@ -30,7 +30,7 @@ export const navList = [
 ]
 
 const Header = ({ changeLanguage: changeLanguage_, language }) => {
-  const connectWallet = useConnectWallet()
+  // const connectWallet = useConnectWallet()
   const { chainId, active, account } = useWeb3React()
   const [visibleMenu, setVisibleMenu] = useState(false)
 
