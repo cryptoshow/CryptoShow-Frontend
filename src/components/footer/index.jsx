@@ -117,7 +117,10 @@ const Footer = (props) => {
                   ></path>
                 </svg>
               </a>
-              <a>
+              <a
+                href='https://www.youtube.com/channel/UCi8ZQRE3Dzof6OxW9JjyQig'
+                target='_blank'
+              >
                 <svg
                   t='1627962672398'
                   className='icon'
@@ -398,7 +401,9 @@ const Footer = (props) => {
                   ></path>
                 </svg>
               </a>
-              <a>
+              <a
+                href='https://www.youtube.com/channel/UCi8ZQRE3Dzof6OxW9JjyQig' target='_blank'
+              >
                 <svg
                   t='1627962672398'
                   className='icon'
