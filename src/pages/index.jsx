@@ -5,6 +5,7 @@ import {
 } from 'react-router-dom'
 
 import Home from './home'
+import Investment from './investment'
 import Header from '../components/header'
 
 function PageNotFont() {
@@ -18,6 +19,9 @@ export default function App() {
       <Switch>
         <Route path="/" exact>
           <Home/>
+        </Route>
+        <Route path="/investment" exact>
+          <Investment/>
         </Route>
         <Route path="*">
           <PageNotFont/>

@@ -136,12 +136,31 @@
     .menu {
       display: none;
     }
+   .account-view{
+     background: rgba(255, 255, 255, 0.7);
+     border-radius: 8px;
+     opacity: 0.9;
+     display: flex;
+     font-size: 16px;
+     font-weight: 500;
+     color: #172E45;
+     .balance-box{
+       white-space: normal;
+       padding: 13px 16px;
+     }
+     .account-box{
+       background: #FFFFFF;
+       border-radius: 8px;
+       padding: 13px 16px 13px 30px;
+       cursor: pointer;
+     }
+   }
   }
 
   @media (max-width: 749px) {
     .header {
       width: 100%;
-      min-width: 375px;
+      //min-width: 375px;
       height: 80px;
       .header_box {
         display: none;

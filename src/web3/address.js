@@ -4,6 +4,7 @@ export const ChainId = {
   MATIC: 137
 }
 
+export const SHOW_ADDRESS = '0x948d2a81086A075b3130BAc19e4c6DEe1D2E3fE8'
 
 export const getRpcUrl = chainId => {
   const RPC_URLS = {

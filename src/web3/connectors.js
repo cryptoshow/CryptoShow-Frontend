@@ -57,7 +57,7 @@ const networkConf = {
 
 
 export const injected = new InjectedConnector({
-  supportedChainIds: [ChainId.MATIC],
+  supportedChainIds: [ChainId.BSC],
 })
 
 export const changeNetwork = chainId => new Promise(reslove => {

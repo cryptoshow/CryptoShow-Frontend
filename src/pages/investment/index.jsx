@@ -1,0 +1,124 @@
+import React, {useContext, useMemo, useState} from "react";
+import Footer from "../../components/footer";
+import './index.less'
+import {Button, message, Spin} from "antd";
+import FailDialog from "../../components/dialog/fail-dialog";
+import ContributionDialog from "../../components/dialog/contribution-dialog";
+import {getContract} from "../../web3";
+import {useWeb3React} from "@web3-react/core";
+import offeringAbi from '../../web3/abi/offering.json'
+import {formatAmount} from "../../utils/format";
+import {getOnlyMultiCallProvider, processResult} from "../../web3/multicall";
+import {Contract} from "ethers-multicall-x";
+import { VarContext } from '../../context'
+
+const OFFERING_ADDRESS = '0xA9ce26a7F2a206D165c0Aff83BbCdF81fd4B489E'
+
+export default function Investment(){
+  const [visibleFailDialog, setVisibleFailDialog] = useState(false)
+  const [visibleContributionDialog, setVisibleContributionDialog] = useState(false)
+  const [claimLoading, setClaimLoading] = useState(false)
+  const [loadLoading, setLoadLoading] = useState(true)
+  const {account, library, chainId} = useWeb3React()
+  const { balance, blockHeight } = useContext(VarContext)
+  const [data, setData] = useState({
+    unlockCapacity: '0',
+    quota: '0',
+    volume: '0'
+  })
+
+  const getData = () => {
+    const multicallProvider = getOnlyMultiCallProvider(chainId)
+    const contract = new Contract(OFFERING_ADDRESS, offeringAbi)
+    const promiseAll = [
+      contract.unlockCapacity(account), // claim余额
+      contract.getQuota(account), // 可用额度 Allocation
+      contract.getVolume(account), // 可获得标的物的量 TOKEN Allocation
+    ]
+    multicallProvider.all(promiseAll).then(data => {
+      const [unlockCapacity, quota, volume] = processResult(data)
+      setData({
+        unlockCapacity: formatAmount(unlockCapacity),
+        quota: formatAmount(quota),
+        volume: formatAmount(volume)
+      })
+      setLoadLoading(false)
+      // 不在白名单
+      if (Number(quota) === 0){
+        setVisibleFailDialog(true)
+      }
+    })
+  }
+  useMemo(() => {
+    if (account) {
+      getData()
+    }
+  }, [account, blockHeight])
+  const onClaim = () => {
+    if (!(data.unlockCapacity > 0)) return
+    setClaimLoading(true)
+    const pool_contract = getContract(
+      library,
+      offeringAbi,
+      OFFERING_ADDRESS
+    )
+    pool_contract.methods
+      .unlock()
+      .send({ from: account })
+      .on('receipt', ()=> {
+        message.success('claim success')
+        setClaimLoading(false)
+      })
+      .on('error', () => {
+        message.success('claim error')
+        setClaimLoading(false)
+      })
+  }
+  return (
+    <Spin size="large" spinning={loadLoading} tip="loading...">
+      <div className="investment-page">
+        <div className="investment-page-box">
+
+          <div className="allocation-cards">
+            <div className="allocation-card l">
+              <p>USDT Allocation</p>
+              <h2>100 USDT</h2>
+            </div>
+            <div className="allocation-card r">
+              <p>SHOW Token Allocation</p>
+              <h2>3000 SHOW</h2>
+            </div>
+          </div>
+
+          <h1 className="investment-page-title">Investor Information</h1>
+
+          <div className="investment-table">
+            <div className="tr">
+              <div className="td l">SHOW Contract Address</div>
+              <div className="td r">0x12453462dFc7eC32296407117ff5301e1k2j3b32m</div>
+            </div>
+            <div className="tr">
+              <div className="td l">Ambassador</div>
+              <div className="td r">SEED</div>
+            </div>
+            <div className="tr">
+              <div className="td l">SHOW in Wallet</div>
+              <div className="td r">{balance} SHOW</div>
+            </div>
+            <div className="tr">
+              <div className="td l">Claimable balance</div>
+              <div className="td r">
+                {data.unlockCapacity}
+                <Button className="claim-btn" size="small" loading={claimLoading} onClick={onClaim}>Claim</Button>
+              </div>
+            </div>
+          </div>
+
+        </div>
+        <Footer/>
+        <FailDialog visible={visibleFailDialog} onClose={() => false}/>
+        <ContributionDialog visible={visibleContributionDialog} onClose={() => false}/>
+      </div>
+    </Spin>
+  )
+}
