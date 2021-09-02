@@ -102,7 +102,7 @@ const Header = ({ changeLanguage: changeLanguage_, language }) => {
           chainId,
           visible: visibleMenu,
           setVisible: setVisibleMenu,
-          changeLanguage: changeLanguage_, 
+          changeLanguage: changeLanguage_,
           language
         }}
       />
