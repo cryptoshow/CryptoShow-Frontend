@@ -58,5 +58,18 @@ const ZH = {
   home_text_54: '免责声明',
   home_text_55: '隐私条款',
   home_text_56: '服务条款',
+  switch_wallet_dialog_text1: '您须切换网络',
+  switch_wallet_dialog_text2:
+    '我们检测到您需要为此Dapp将钱包的网络从本地网络切换到主网络。',
+  switch_wallet_dialog_text3:
+    '*某些钱包可能不支持更改网络。如果您无法更改钱包中的网络，您可以考虑切换到不同的钱包。',
+  switch_wallet_dialog_text4: '切换网络',
+  investment_text1: '投资者信息',
+  investment_text2: 'SHOW 合约地址',
+  investment_text3: '轮',
+  investment_text4: 'SHOW 余额',
+  investment_text5: '可领取',
+  investment_text6: '提取',
+
 }
 export default ZH

@@ -60,5 +60,17 @@ const EN = {
   home_text_54: 'Disclaimer',
   home_text_55: 'Privacy Policy',
   home_text_56: 'Terms of Service',
+  switch_wallet_dialog_text1: 'You Must Change Networks',
+  switch_wallet_dialog_text2:
+    "We've detected that you need to switch your wallet's network from local to mainnet network for this Dapp.",
+  switch_wallet_dialog_text3:
+    '*Some wallets may not support changing networks. If you can not change networks in your wallet you may consider switching to a different wallet.',
+  switch_wallet_dialog_text4: 'Switch Network',
+  investment_text1: 'Investor Information',
+  investment_text2: 'SHOW Contract Address',
+  investment_text3: 'Ambassador',
+  investment_text4: 'SHOW in Wallet',
+  investment_text5: 'Claimable balance',
+  investment_text6: 'Claim',
 }
 export default EN

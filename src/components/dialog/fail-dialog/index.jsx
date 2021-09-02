@@ -3,14 +3,14 @@ import {Modal} from 'antd'
 import './index.less'
 import FailSvg from '../../../assets/image/dialog/fail.svg'
 
-export default function FailDialog({visible, onClose}) {
+export default function FailDialog({visible, onClose = () => false, closable = true}) {
   return (
     <Modal
       visible={visible}
       footer={null}
       onCancel={onClose}
       centered
-      closable={false}
+      closable={closable}
       destroyOnClose
       wrapClassName="fail_dialog_wrap"
     >

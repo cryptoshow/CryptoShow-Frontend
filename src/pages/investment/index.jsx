@@ -11,6 +11,9 @@ import {formatAmount} from "../../utils/format";
 import {getOnlyMultiCallProvider, processResult} from "../../web3/multicall";
 import {Contract} from "ethers-multicall-x";
 import { VarContext } from '../../context'
+import SwitchWalletDialog from "../../components/dialog/switch-wallet-dialog";
+import {ChainId, SHOW_ADDRESS} from "../../web3/address";
+import {FormattedMessage} from "react-intl";
 
 const OFFERING_ADDRESS = '0xA9ce26a7F2a206D165c0Aff83BbCdF81fd4B489E'
 
@@ -18,7 +21,8 @@ export default function Investment(){
   const [visibleFailDialog, setVisibleFailDialog] = useState(false)
   const [visibleContributionDialog, setVisibleContributionDialog] = useState(false)
   const [claimLoading, setClaimLoading] = useState(false)
-  const [loadLoading, setLoadLoading] = useState(true)
+  const [loadLoading, setLoadLoading] = useState(false)
+  const [visibleSwitchWallet, setVisibleSwitchWallet] = useState(false)
   const {account, library, chainId} = useWeb3React()
   const { balance, blockHeight } = useContext(VarContext)
   const [data, setData] = useState({
@@ -49,6 +53,9 @@ export default function Investment(){
       }
     })
   }
+  useMemo(() => {
+    setVisibleSwitchWallet(chainId !== ChainId.BSC)
+  }, [chainId])
   useMemo(() => {
     if (account) {
       getData()
@@ -90,34 +97,39 @@ export default function Investment(){
             </div>
           </div>
 
-          <h1 className="investment-page-title">Investor Information</h1>
+          <h1 className="investment-page-title">
+            <FormattedMessage id="investment_text1"/>
+          </h1>
 
           <div className="investment-table">
             <div className="tr">
-              <div className="td l">SHOW Contract Address</div>
-              <div className="td r">0x12453462dFc7eC32296407117ff5301e1k2j3b32m</div>
+              <div className="td l"><FormattedMessage id="investment_text2"/></div>
+              <div className="td r">{SHOW_ADDRESS}</div>
             </div>
             <div className="tr">
-              <div className="td l">Ambassador</div>
+              <div className="td l"><FormattedMessage id="investment_text3"/></div>
               <div className="td r">SEED</div>
             </div>
             <div className="tr">
-              <div className="td l">SHOW in Wallet</div>
+              <div className="td l"><FormattedMessage id="investment_text4"/></div>
               <div className="td r">{balance} SHOW</div>
             </div>
             <div className="tr">
-              <div className="td l">Claimable balance</div>
+              <div className="td l"><FormattedMessage id="investment_text5"/></div>
               <div className="td r">
                 {data.unlockCapacity}
-                <Button className="claim-btn" size="small" loading={claimLoading} onClick={onClaim}>Claim</Button>
+                <Button className="claim-btn" size="small" loading={claimLoading} onClick={onClaim}>
+                  <FormattedMessage id="investment_text6"/>
+                </Button>
               </div>
             </div>
           </div>
 
         </div>
         <Footer/>
-        <FailDialog visible={visibleFailDialog} onClose={() => false}/>
-        <ContributionDialog visible={visibleContributionDialog} onClose={() => false}/>
+        <FailDialog visible={visibleFailDialog} closable={false}/>
+        <ContributionDialog visible={visibleContributionDialog} closable={false}/>
+        <SwitchWalletDialog visible={visibleSwitchWallet} closable={false} netWorkId={ChainId.BSC}/>
       </div>
     </Spin>
   )

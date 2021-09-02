@@ -7,7 +7,7 @@ import './index.less'
 import {injected, useConnectWallet, walletConnector} from '../../../web3/connectors'
 import {ChainId} from '../../../web3/address'
 
-function ConnectWallDialog({visible, onClose}) {
+function ConnectWallDialog({visible, onClose = () => false, closable = true}) {
   const connectWallet = useConnectWallet()
   const {chainId, active} = useWeb3ReactCore()
   const defChainId = injected.supportedChainIds.includes(chainId) ? chainId : ChainId.BSC
@@ -38,7 +38,7 @@ function ConnectWallDialog({visible, onClose}) {
       <Modal
         visible={visible}
         footer={null}
-        closable={true}
+        closable={closable}
         onCancel={onClose}
         centered
         wrapClassName="connect_wallet_dialog_wrap"

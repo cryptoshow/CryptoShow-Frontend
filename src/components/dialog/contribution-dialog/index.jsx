@@ -3,14 +3,14 @@ import {Button, Modal} from 'antd'
 import './index.less'
 import FailSvg from '../../../assets/image/dialog/fail.svg'
 
-export default function ContributionDialog({visible, onClose, amount}) {
+export default function ContributionDialog({visible, onClose = () => false, amount, closable = true}) {
   return (
     <Modal
       visible={visible}
       footer={null}
       onCancel={onClose}
       centered
-      closable={false}
+      closable={closable}
       destroyOnClose
       wrapClassName="contribution_dialog_wrap"
     >
