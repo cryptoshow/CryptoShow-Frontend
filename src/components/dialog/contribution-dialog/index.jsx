@@ -8,7 +8,7 @@ import {OFFERING_ADDRESS} from "../../../pages/investment";
 import offeringAbi from "../../../web3/abi/offering.json";
 const USDT_ADDRESS = '0xdAC17F958D2ee523a2206206994597C13D831ec7'
 
-export default function ContributionDialog({visible, onClose = () => false, amount, closable = true}) {
+export default function ContributionDialog({visible, onClose = () => false, amount, closable = true, getData}) {
   const {library, account} = useWeb3React()
   const [approveLoading, setApproveLoading] = useState(false)
   const [contributeLoading, setContributeLoading] = useState(false)
@@ -65,6 +65,7 @@ export default function ContributionDialog({visible, onClose = () => false, amou
       .on('receipt', ()=> {
         message.success('contribute success')
         setContributeLoading(false)
+        getData()
       })
       .on('error', () => {
         message.error('contribute error')

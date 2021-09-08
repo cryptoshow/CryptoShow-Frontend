@@ -128,7 +128,7 @@ export default function Investment(){
         </div>
         <Footer/>
         <FailDialog visible={visibleFailDialog} closable={false}/>
-        <ContributionDialog visible={data.quota > 0} amount={data.quota} closable={false}/>
+        <ContributionDialog visible={data.quota > 0} amount={data.quota} closable={false} getData={getData}/>
         <SwitchWalletDialog visible={visibleSwitchWallet} closable={false} netWorkId={ChainId.ETH}/>
       </div>
     </Spin>
