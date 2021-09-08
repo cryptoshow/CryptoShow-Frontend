@@ -1,27 +1,18 @@
 export const ChainId = {
+  ETH: 1,
   BSC: 56,
   HECO: 128,
   MATIC: 137
 }
 
-export const SHOW_ADDRESS = '0x948d2a81086A075b3130BAc19e4c6DEe1D2E3fE8'
+export const SHOW_ADDRESS = '0xabBaB4DD1d6E7E74C3ffFD5aCb6CEF0029943efa'
 
 export const getRpcUrl = chainId => {
   const RPC_URLS = {
+    [ChainId.ETH]: 'https://mainnet.infura.io/v3/9aa3d95b3bc440fa88ea12eaa4456161',
     [ChainId.HECO]: 'https://http-mainnet-node.huobichain.com',
     [ChainId.BSC]: 'https://bsc-dataseed.binance.org/',
     [ChainId.MATIC]: 'https://rpc-mainnet.maticvigil.com'
   }
   return RPC_URLS[chainId]
-}
-export const getTokenName = address=>{
-  const Address = address.toLocaleLowerCase()
-  switch (Address) {
-    case '0x0d500b1d8e8ef31e21c99d1db9a6444d3adf1270':
-      return 'MATIC'
-    case '0x948d2a81086a075b3130bac19e4c6dee1d2e3fe8':
-      return 'GUARD'
-    default:
-      return ''
-  }
 }

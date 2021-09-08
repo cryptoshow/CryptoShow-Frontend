@@ -5,7 +5,7 @@ import {FormattedMessage} from 'react-intl'
 import {changeNetwork} from '../../../web3/connectors'
 import {ChainId} from '../../../web3/address'
 
-function SwitchWalletDialog({visible, onClose = ()=>false, closable = true, netWorkId = ChainId.BSC}) {
+function SwitchWalletDialog({visible, onClose = ()=>false, closable = true, netWorkId = ChainId.ETH}) {
   return (
     <Modal
       visible={visible}

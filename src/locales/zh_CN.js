@@ -70,6 +70,7 @@ const ZH = {
   investment_text4: 'SHOW 余额',
   investment_text5: '可领取',
   investment_text6: '提取',
+  investment_text7: '很抱歉，由于您未参与白名单，您无法完成此项目。'
 
 }
 export default ZH

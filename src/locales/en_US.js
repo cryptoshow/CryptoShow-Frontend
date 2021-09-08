@@ -72,5 +72,6 @@ const EN = {
   investment_text4: 'SHOW in Wallet',
   investment_text5: 'Claimable balance',
   investment_text6: 'Claim',
+  investment_text7: 'Sorry, you are not eligable for this project since you are not involved in the whitelist.'
 }
 export default EN

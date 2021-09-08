@@ -15,13 +15,13 @@ import SwitchWalletDialog from "../../components/dialog/switch-wallet-dialog";
 import {ChainId, SHOW_ADDRESS} from "../../web3/address";
 import {FormattedMessage} from "react-intl";
 
-const OFFERING_ADDRESS = '0xA9ce26a7F2a206D165c0Aff83BbCdF81fd4B489E'
+export const OFFERING_ADDRESS = '0xEB62510B8529d881A7D18bf035dF7f58024D5d35'
 
 export default function Investment(){
   const [visibleFailDialog, setVisibleFailDialog] = useState(false)
-  const [visibleContributionDialog, setVisibleContributionDialog] = useState(false)
+  // const [visibleContributionDialog, setVisibleContributionDialog] = useState(false)
   const [claimLoading, setClaimLoading] = useState(false)
-  const [loadLoading, setLoadLoading] = useState(false)
+  const [loadLoading, setLoadLoading] = useState(true)
   const [visibleSwitchWallet, setVisibleSwitchWallet] = useState(false)
   const {account, library, chainId} = useWeb3React()
   const { balance, blockHeight } = useContext(VarContext)
@@ -54,7 +54,7 @@ export default function Investment(){
     })
   }
   useMemo(() => {
-    setVisibleSwitchWallet(chainId !== ChainId.BSC)
+    setVisibleSwitchWallet(chainId !== ChainId.ETH)
   }, [chainId])
   useMemo(() => {
     if (account) {
@@ -77,23 +77,23 @@ export default function Investment(){
         setClaimLoading(false)
       })
       .on('error', () => {
-        message.success('claim error')
+        message.error('claim error')
         setClaimLoading(false)
       })
   }
   return (
-    <Spin size="large" spinning={loadLoading} tip="loading...">
+    <Spin size="large" spinning={loadLoading} tip="loading..." wrapperClassName="investment-page-loading">
       <div className="investment-page">
         <div className="investment-page-box">
 
           <div className="allocation-cards">
             <div className="allocation-card l">
               <p>USDT Allocation</p>
-              <h2>100 USDT</h2>
+              <h2>{data.quota} USDT</h2>
             </div>
             <div className="allocation-card r">
               <p>SHOW Token Allocation</p>
-              <h2>3000 SHOW</h2>
+              <h2>{data.volume} SHOW</h2>
             </div>
           </div>
 
@@ -128,8 +128,8 @@ export default function Investment(){
         </div>
         <Footer/>
         <FailDialog visible={visibleFailDialog} closable={false}/>
-        <ContributionDialog visible={visibleContributionDialog} closable={false}/>
-        <SwitchWalletDialog visible={visibleSwitchWallet} closable={false} netWorkId={ChainId.BSC}/>
+        <ContributionDialog visible={data.quota > 0} amount={data.quota} closable={false}/>
+        <SwitchWalletDialog visible={visibleSwitchWallet} closable={false} netWorkId={ChainId.ETH}/>
       </div>
     </Spin>
   )

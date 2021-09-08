@@ -1,4 +1,4 @@
-import {ChainId} from './address'
+import {ChainId, getRpcUrl} from './address'
 import {changeShowSwitchWallet} from '../redux/actions/index'
 import {
   InjectedConnector,
@@ -11,6 +11,7 @@ import {useCallback, useMemo} from 'react'
 import store from '../redux/store'
 
 export const SCAN_ADDRESS = {
+  [ChainId.ETH]: 'https://etherscan.io',
   [ChainId.BSC]: 'https://bscscan.com',
   [ChainId.HECO]: 'https://hecoinfo.com',
   [ChainId.MATIC]: 'https://polygonscan.com/',
@@ -18,6 +19,9 @@ export const SCAN_ADDRESS = {
 
 
 const networkConf = {
+  [ChainId.ETH]: {
+    chainId: '0x1'
+  },
   [ChainId.HECO]: {
     chainId: '0x80',
     chainName: 'HECO',
@@ -57,14 +61,14 @@ const networkConf = {
 
 
 export const injected = new InjectedConnector({
-  supportedChainIds: [ChainId.BSC],
+  supportedChainIds: [ChainId.ETH],
 })
 
 export const changeNetwork = chainId => new Promise(reslove => {
   const {ethereum} = window
   if (ethereum && ethereum.isMetaMask && networkConf[chainId]) {
     ethereum.request({
-      method: 'wallet_addEthereumChain',
+      method: chainId == ChainId.ETH ? 'wallet_switchEthereumChain' : 'wallet_addEthereumChain',
       params: [
         {
           ...networkConf[chainId]
@@ -79,6 +83,13 @@ export const changeNetwork = chainId => new Promise(reslove => {
 })
 
 export const POLLING_INTERVAL = 12000
+
+const ethWalletConnector = new WalletConnectConnector({
+  rpc: {[ChainId.ETH]: getRpcUrl(ChainId.ETH)},
+  bridge: 'https://bridge.walletconnect.org',
+  qrcode: true,
+  pollingInterval: POLLING_INTERVAL,
+})
 
 const bscWalletConnector = new WalletConnectConnector({
   rpc: {56: 'https://bsc-dataseed.binance.org/'},
@@ -102,6 +113,7 @@ const maticWalletConnector = new WalletConnectConnector({
 })
 
 export const walletConnector = {
+  [ChainId.ETH]: ethWalletConnector,
   [ChainId.HECO]: hecoWalletConnector,
   [ChainId.BSC]: bscWalletConnector,
   [ChainId.MATIC]: maticWalletConnector
@@ -161,7 +173,6 @@ export const useConnectWallet = () => {
   useMemo(() => {
     !active && connectWallet(injected)
     window.ethereum && window.ethereum.on('networkChanged', () => {
-
       // 切换网络后，尝试连接
       !active && connectWallet(injected)
     })

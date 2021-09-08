@@ -10,7 +10,7 @@ import {ChainId} from '../../../web3/address'
 function ConnectWallDialog({visible, onClose = () => false, closable = true}) {
   const connectWallet = useConnectWallet()
   const {chainId, active} = useWeb3ReactCore()
-  const defChainId = injected.supportedChainIds.includes(chainId) ? chainId : ChainId.BSC
+  const defChainId = injected.supportedChainIds.includes(chainId) ? chainId : ChainId.ETH
   const [isLoginAuthorize, setIsLoginAuthorize] = useState(false)
   const onConnectWallMetaMask = () => {
     // const isUnlocked = window.ethereum.isConnected()
@@ -46,7 +46,7 @@ function ConnectWallDialog({visible, onClose = () => false, closable = true}) {
       >
         <div className="connect_wallet_dialog_title">
           <h2>链接钱包</h2>
-          <p>请在BSC上连接你的钱包</p>
+          <p>请在ETH上连接你的钱包</p>
         </div>
         <div className="connect_wallet_dialog">
           <div className="wallet_item flex_center" onClick={onConnectWallMetaMask}>
