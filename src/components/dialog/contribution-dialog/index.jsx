@@ -6,6 +6,7 @@ import {useWeb3React} from "@web3-react/core";
 import ERC20 from '../../../web3/abi/ERC20.json'
 import {OFFERING_ADDRESS} from "../../../pages/investment";
 import offeringAbi from "../../../web3/abi/offering.json";
+import {FormattedMessage} from "react-intl";
 const USDT_ADDRESS = '0xdAC17F958D2ee523a2206206994597C13D831ec7'
 
 export default function ContributionDialog({visible, onClose = () => false, amount, closable = true, getData}) {
@@ -84,11 +85,15 @@ export default function ContributionDialog({visible, onClose = () => false, amou
       wrapClassName="contribution_dialog_wrap"
     >
       <div className="text_center">
-        <h1>{amount} USD</h1>
-        <p>Your Contribution Amounts is</p>
+        <h1>{amount} USDT</h1>
+        <p><FormattedMessage id="investment_text8"/></p>
         <div className="btn-group">
-          <Button className="btn-group-item btn-approve" type="primary" onClick={onApprove} loading={approveLoading} disabled={allowance > 0}>Approve</Button>
-          <Button className="btn-group-item btn-contribute" type="primary" disabled={allowance <= 0} loading={contributeLoading} onClick={onContribute}>Contribute</Button>
+          <Button className="btn-group-item btn-approve" type="primary" onClick={onApprove} loading={approveLoading} disabled={allowance > 0}>
+            <FormattedMessage id="investment_text9"/>
+          </Button>
+          <Button className="btn-group-item btn-contribute" type="primary" disabled={allowance <= 0} loading={contributeLoading} onClick={onContribute}>
+            <FormattedMessage id="investment_text10"/>
+          </Button>
         </div>
       </div>
     </Modal>

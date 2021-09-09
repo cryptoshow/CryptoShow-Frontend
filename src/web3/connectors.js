@@ -61,7 +61,7 @@ const networkConf = {
 
 
 export const injected = new InjectedConnector({
-  supportedChainIds: [ChainId.ETH],
+  supportedChainIds: [ChainId.ETH, ChainId.LOCALHOST],
 })
 
 export const changeNetwork = chainId => new Promise(reslove => {

@@ -7,22 +7,22 @@ import ContributionDialog from "../../components/dialog/contribution-dialog";
 import {getContract} from "../../web3";
 import {useWeb3React} from "@web3-react/core";
 import offeringAbi from '../../web3/abi/offering.json'
-import {formatAmount} from "../../utils/format";
+import {formatAmount, fromWei} from "../../utils/format";
 import {getOnlyMultiCallProvider, processResult} from "../../web3/multicall";
 import {Contract} from "ethers-multicall-x";
 import { VarContext } from '../../context'
 import SwitchWalletDialog from "../../components/dialog/switch-wallet-dialog";
 import {ChainId, SHOW_ADDRESS} from "../../web3/address";
 import {FormattedMessage} from "react-intl";
+import {connect} from "react-redux";
 
 export const OFFERING_ADDRESS = '0xEB62510B8529d881A7D18bf035dF7f58024D5d35'
 
-export default function Investment(){
+function Investment(props){
   const [visibleFailDialog, setVisibleFailDialog] = useState(false)
   // const [visibleContributionDialog, setVisibleContributionDialog] = useState(false)
   const [claimLoading, setClaimLoading] = useState(false)
   const [loadLoading, setLoadLoading] = useState(true)
-  const [visibleSwitchWallet, setVisibleSwitchWallet] = useState(false)
   const {account, library, chainId} = useWeb3React()
   const { balance, blockHeight } = useContext(VarContext)
   const [data, setData] = useState({
@@ -42,20 +42,18 @@ export default function Investment(){
     multicallProvider.all(promiseAll).then(data => {
       const [unlockCapacity, quota, volume] = processResult(data)
       setData({
-        unlockCapacity: formatAmount(unlockCapacity),
-        quota: formatAmount(quota),
-        volume: formatAmount(volume)
+        unlockCapacity: fromWei(unlockCapacity).toString(),
+        quota: fromWei(quota).toString(),
+        volume: fromWei(volume).toString()
       })
       setLoadLoading(false)
       // 不在白名单
+      console.log('xxx', unlockCapacity, quota, volume, formatAmount(quota))
       if (Number(quota) === 0){
         setVisibleFailDialog(true)
       }
     })
   }
-  useMemo(() => {
-    setVisibleSwitchWallet(chainId !== ChainId.ETH)
-  }, [chainId])
   useMemo(() => {
     if (account) {
       getData()
@@ -129,8 +127,12 @@ export default function Investment(){
         <Footer/>
         <FailDialog visible={visibleFailDialog} closable={false}/>
         <ContributionDialog visible={data.quota > 0} amount={data.quota} closable={false} getData={getData}/>
-        <SwitchWalletDialog visible={visibleSwitchWallet} closable={false} netWorkId={ChainId.ETH}/>
+        <SwitchWalletDialog visible={props.showSwitchWallet} closable={false} netWorkId={ChainId.ETH}/>
       </div>
     </Spin>
   )
 }
+
+export default connect(
+  state => state.index
+)(Investment)
