@@ -49,8 +49,14 @@ export default function ContributionDialog({visible, onClose = () => false, amou
         '0xffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff'
       )
       .send({from: account})
-      .on('receipt', () => setApproveLoading(false))
-      .on('error', () => setApproveLoading(false))
+      .on('receipt', () => {
+        message.success('success')
+        setApproveLoading(false)
+      })
+      .on('error', () => {
+        message.success('fail')
+        setApproveLoading(false)
+      })
   }
 
   const onContribute = () => {
@@ -69,7 +75,7 @@ export default function ContributionDialog({visible, onClose = () => false, amou
         getData()
       })
       .on('error', () => {
-        message.error('contribute error')
+        message.error('contribute fail')
         setContributeLoading(false)
       })
   }

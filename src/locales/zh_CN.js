@@ -73,7 +73,9 @@ const ZH = {
   investment_text7: '很抱歉，由于您未参与白名单，您无法完成此项目。',
   investment_text8: '您的捐献额度是',
   investment_text9: '批准',
-  investment_text10: '捐助'
+  investment_text10: '捐助',
+  drawer_menu_text1: '链接钱包',
+  connect_wall_dialog_text2: '请在ETH上连接你的钱包',
 
 }
 export default ZH

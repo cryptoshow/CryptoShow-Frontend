@@ -75,6 +75,8 @@ const EN = {
   investment_text7: 'Sorry, you are not eligable for this project since you are not involved in the whitelist.',
   investment_text8: 'Your Contribution Amounts is',
   investment_text9: 'Approve',
-  investment_text10: 'Contribute'
+  investment_text10: 'Contribute',
+  drawer_menu_text1: 'Connect Wallet',
+  connect_wall_dialog_text2: 'Please connect your wallet on eth',
 }
 export default EN

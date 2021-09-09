@@ -9,8 +9,10 @@ import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { changeLanguage } from '../../redux/actions'
 import { languageConfig } from '../../locales/intl'
+import {formatAddress} from "../../utils";
 
-function DrawerMenu({ account, active, chainId, visible, setVisible, connectWalletClick, location, changeLanguage, language, visibleHeaderClaim, setVisibleHeaderClaim }) {
+function DrawerMenu({ account, active, chainId, visible, setVisible, connectWalletClick, location,
+                      changeLanguage, language, visibleHeaderClaim, setVisibleHeaderClaim, setVisibleConnectWall, balance }) {
   const onClose = () => {
     setVisible(false)
   }
@@ -26,6 +28,21 @@ function DrawerMenu({ account, active, chainId, visible, setVisible, connectWall
     >
       <img src={LogoSvg} alt="" className="logo" />
       <div className='logo_line'></div>
+
+      {
+        account ? (
+          <div className="menu-wall-view" onClick={() => setVisibleConnectWall(true)}>
+            <div>{balance} SHOW</div>
+            <div>{formatAddress(account, 6, 3)}</div>
+          </div>
+        ) : (
+          <div className="menu-connect-wall" onClick={() => setVisibleConnectWall(true)}>
+            <div>ETH</div>
+            <div><FormattedMessage id="drawer_menu_text1"/></div>
+          </div>
+        )
+      }
+
       <div className="menu-li">
         {
           navList.map(item => (

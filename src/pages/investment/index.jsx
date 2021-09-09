@@ -4,7 +4,7 @@ import './index.less'
 import {Button, message, Spin} from "antd";
 import FailDialog from "../../components/dialog/fail-dialog";
 import ContributionDialog from "../../components/dialog/contribution-dialog";
-import {getContract} from "../../web3";
+import {getContract, getWeb3} from "../../web3";
 import {useWeb3React} from "@web3-react/core";
 import offeringAbi from '../../web3/abi/offering.json'
 import {formatAmount, fromWei} from "../../utils/format";
@@ -52,6 +52,17 @@ function Investment(props){
       if (Number(quota) === 0){
         setVisibleFailDialog(true)
       }
+
+      const web3 = getWeb3(library)
+
+      web3.eth.getBlockNumber().then(value => {
+        console.log('value', value)
+        web3.eth.getBlock(value).then(res => {
+          console.log(res)
+          console.log(new Date(res.timestamp * 1000).toLocaleString())
+        })
+      })
+
     })
   }
   useMemo(() => {
@@ -126,7 +137,7 @@ function Investment(props){
         </div>
         <Footer/>
         <FailDialog visible={visibleFailDialog} closable={false}/>
-        <ContributionDialog visible={data.quota > 0} amount={data.quota} closable={false} getData={getData}/>
+        <ContributionDialog visible={data.quota > 0 && data.volume <= 0} amount={data.quota} closable={false} getData={getData}/>
         <SwitchWalletDialog visible={props.showSwitchWallet} closable={false} netWorkId={ChainId.ETH}/>
       </div>
     </Spin>

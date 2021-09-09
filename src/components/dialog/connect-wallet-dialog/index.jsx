@@ -6,6 +6,7 @@ import MetamaskSvg from '../../../assets/image/dialog/metamask.svg'
 import './index.less'
 import {injected, useConnectWallet, walletConnector} from '../../../web3/connectors'
 import {ChainId} from '../../../web3/address'
+import {FormattedMessage} from "react-intl";
 
 function ConnectWallDialog({visible, onClose = () => false, closable = true}) {
   const connectWallet = useConnectWallet()
@@ -45,8 +46,8 @@ function ConnectWallDialog({visible, onClose = () => false, closable = true}) {
         zIndex={1001}
       >
         <div className="connect_wallet_dialog_title">
-          <h2>链接钱包</h2>
-          <p>请在ETH上连接你的钱包</p>
+          <h2><FormattedMessage id="drawer_menu_text1"/></h2>
+          <p><FormattedMessage id="connect_wall_dialog_text2"/></p>
         </div>
         <div className="connect_wallet_dialog">
           <div className="wallet_item flex_center" onClick={onConnectWallMetaMask}>

@@ -103,7 +103,9 @@ const Header = ({ changeLanguage: changeLanguage_, language }) => {
           visible: visibleMenu,
           setVisible: setVisibleMenu,
           changeLanguage: changeLanguage_,
-          language
+          language,
+          setVisibleConnectWall,
+          balance
         }}
       />
       <ConnectWallDialog visible={visibleConnectWall} onClose={() => setVisibleConnectWall(false)}/>
