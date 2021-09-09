@@ -42,13 +42,13 @@ function Investment(props){
     multicallProvider.all(promiseAll).then(data => {
       const [unlockCapacity, quota, volume] = processResult(data)
       setData({
-        unlockCapacity: fromWei(unlockCapacity).toString(),
+        unlockCapacity: fromWei(unlockCapacity).toFixed(6)*1,
         quota: fromWei(quota).toString(),
         volume: fromWei(volume).toString()
       })
       setLoadLoading(false)
       // 不在白名单
-      console.log('xxx', unlockCapacity, quota, volume, formatAmount(quota))
+      console.log('unlockCapacity, quota, volume, formatAmount(quota)', unlockCapacity, quota, volume, formatAmount(quota))
       if (Number(quota) === 0){
         setVisibleFailDialog(true)
       }
