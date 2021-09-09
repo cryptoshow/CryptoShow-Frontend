@@ -1,5 +1,5 @@
 import {ChainId, getRpcUrl} from './address'
-import {changeShowSwitchWallet} from '../redux/actions/index'
+import {changeShowConnectWall, changeShowSwitchWallet} from '../redux/actions/index'
 import {
   InjectedConnector,
   NoEthereumProviderError,
@@ -125,6 +125,7 @@ export const useConnectWallet = () => {
     .then(e => {
       // 隐藏切换网络弹窗
       store.getState().index.showSwitchWallet && store.dispatch(changeShowSwitchWallet({showSwitchWallet: false}))
+      store.getState().index.showConnectWallet && store.dispatch(changeShowConnectWall({showConnectWallet: false}))
       if (window.ethereum && window.ethereum.on) {
         // 监听钱包事件
         console.log('注册事件')
@@ -164,6 +165,7 @@ export const useConnectWallet = () => {
           break
         case error instanceof UserRejectedRequestError:
           console.log('用户拒绝连接钱包')
+          store.dispatch(changeShowConnectWall({showConnectWallet: true}))
           break
         default:
           console.log(error)

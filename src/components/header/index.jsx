@@ -2,7 +2,7 @@ import React, {useContext, useState} from 'react'
 import './index.less'
 import { Link } from 'react-router-dom'
 import { FormattedMessage } from 'react-intl'
-import { changeLanguage } from '../../redux/actions'
+import {changeLanguage, changeShowConnectWall} from '../../redux/actions'
 import { connect } from 'react-redux'
 import { useWeb3React } from '@web3-react/core'
 
@@ -28,7 +28,7 @@ export const navList = [
   },
 ]
 
-const Header = ({ changeLanguage: changeLanguage_, language }) => {
+const Header = ({ changeLanguage: changeLanguage_, language, showConnectWallet, changeShowConnectWall }) => {
   // const connectWallet = useConnectWallet()
   const { chainId, active, account } = useWeb3React()
   const [visibleMenu, setVisibleMenu] = useState(false)
@@ -108,12 +108,17 @@ const Header = ({ changeLanguage: changeLanguage_, language }) => {
           balance
         }}
       />
-      <ConnectWallDialog visible={visibleConnectWall} onClose={() => setVisibleConnectWall(false)}/>
+      <ConnectWallDialog visible={visibleConnectWall || showConnectWallet} closable={!showConnectWallet} onClose={() => {
+        if (showConnectWallet) return
+        setVisibleConnectWall(false)
+        changeShowConnectWall({showConnectWallet: false})
+      }}/>
     </>
   )
 }
 export default connect(
   state => state.index, {
-  changeLanguage
+  changeLanguage,
+    changeShowConnectWall
 }
 )(Header)
