@@ -62,7 +62,7 @@ const Header = ({ changeLanguage: changeLanguage_, language, showConnectWallet, 
               onClick={() => {
                 changeNetwork(chainId === 1 ? ChainId.BSC : ChainId.ETH).then(
                   () => {
-                    console.log('切换成功')
+                    console.log('切换成功！')
                   }
                 )
               }}
