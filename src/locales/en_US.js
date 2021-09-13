@@ -78,5 +78,7 @@ const EN = {
   investment_text10: 'Contribute',
   drawer_menu_text1: 'Connect Wallet',
   connect_wall_dialog_text2: 'Please connect your wallet on eth',
+  Allocation: 'Allocation',
+  SEED: 'SEED'
 }
 export default EN

@@ -76,6 +76,8 @@ const ZH = {
   investment_text10: '捐助',
   drawer_menu_text1: '链接钱包',
   connect_wall_dialog_text2: '请在ETH上连接你的钱包',
+  Allocation: '额度',
+  SEED: "种子轮"
 
 }
 export default ZH
