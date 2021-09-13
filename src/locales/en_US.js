@@ -3,11 +3,13 @@ const EN = {
   header_text_1: 'NFT Issue',
   header_text_2: 'NFT Auction',
   header_text_3: 'NDR',
+  header_text_4: 'Crowdfunding',
+  header_text_5: 'Ethereum/BSC',
   banner_text_1: 'CryptoShow',
   banner_text_2:
-    "The world's first decentralized permissionless NFT auction and depository trading platform",
+    'CryptoShow is a decentralized NFT depository and crowdfunding platform that aims to disrupt the entirety of the NFT Space.',
   banner_text_3:
-    'CryptoShow will be deployed on the Binance Smart chain (BSC), supporting BEP-721 and BEP-1155 for ideal trading of digital assets. Users can authorize and trade assets through priced issuance, multiform auction, NDR, AMM, etc., along with various liquidity enhancement solutions',
+    'Users can make a public offering of their NFTs through the NDR depository protocols, privatization buy-out, and crowdfunding, providing a complementary asset securitization and liquidity solution for NFTs.',
   banner_text_4: 'Learn More',
   banner_text_5: 'Audit Report',
   banner_text_6: 'Get a selection on the homepage',
@@ -72,7 +74,8 @@ const EN = {
   investment_text4: 'SHOW in Wallet',
   investment_text5: 'Claimable balance',
   investment_text6: 'Claim',
-  investment_text7: 'Sorry, you are not eligable for this project since you are not involved in the whitelist.',
+  investment_text7:
+    'Sorry, you are not eligable for this project since you are not involved in the whitelist.',
   investment_text8: 'Your Contribution Amounts is',
   investment_text9: 'Approve',
   investment_text10: 'Contribute',

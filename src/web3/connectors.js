@@ -7,7 +7,7 @@ import {
 } from '@web3-react/injected-connector'
 import {UnsupportedChainIdError, useWeb3React} from '@web3-react/core'
 import {WalletConnectConnector} from '@web3-react/walletconnect-connector'
-import {useCallback, useMemo} from 'react'
+import { useCallback, useMemo, useEffect } from 'react'
 import store from '../redux/store'
 
 export const SCAN_ADDRESS = {
@@ -61,7 +61,7 @@ const networkConf = {
 
 
 export const injected = new InjectedConnector({
-  supportedChainIds: [ChainId.ETH, ChainId.LOCALHOST],
+  supportedChainIds: [ChainId.ETH, ChainId.BSC, ChainId.LOCALHOST],
 })
 
 export const changeNetwork = chainId => new Promise(reslove => {
@@ -172,7 +172,7 @@ export const useConnectWallet = () => {
       }
     })), [])
 
-  useMemo(() => {
+  useEffect(() => {
     !active && connectWallet(injected)
     window.ethereum && window.ethereum.on('networkChanged', () => {
       // 切换网络后，尝试连接

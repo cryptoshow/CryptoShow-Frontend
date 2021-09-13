@@ -3,10 +3,12 @@ const ZH = {
   header_text_1: 'NFT发行',
   header_text_2: 'NFT拍卖',
   header_text_3: 'NDR',
+  header_text_4: '众筹',
+  header_text_5: 'Ethereum/BSC',
   banner_text_1: 'CryptoShow',
-  banner_text_2: '全球首个去中心化无许可的NFT拍卖与存托交易平台',
+  banner_text_2: '去中心化的NFT存托与众筹平台',
   banner_text_3:
-    'CryptoShow将部署在币安智能链(BSC)，支持BEP-721和BEP-721标准的数字资产买卖，用户可以通过定价发行、多形式拍卖、NDR、AMM等方式进行资产赋能和交易，同时配套多种流动性提升解决方案。',
+    '用户可以通过NDR存托协议和众筹协议，对NFT进行公有化定价发行NDRs、私有化邀约买断和众筹，为NFT提供配套的资产证券化和流动性解决方案。',
   banner_text_4: '了解更多',
   banner_text_5: '审计报告',
   banner_text_6: '在主页上获得精选',
@@ -76,6 +78,5 @@ const ZH = {
   investment_text10: '捐助',
   drawer_menu_text1: '链接钱包',
   connect_wall_dialog_text2: '请在ETH上连接你的钱包',
-
 }
 export default ZH
