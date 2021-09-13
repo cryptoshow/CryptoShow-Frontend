@@ -97,11 +97,11 @@ function Investment(props){
 
           <div className="allocation-cards">
             <div className="allocation-card l">
-              <p>USDT Allocation</p>
+              <p>USDT <FormattedMessage id="Allocation"/></p>
               <h2>{data.quota} USDT</h2>
             </div>
             <div className="allocation-card r">
-              <p>SHOW Token Allocation</p>
+              <p>SHOW Token <FormattedMessage id="Allocation"/></p>
               <h2>{data.volume} SHOW</h2>
             </div>
           </div>
@@ -117,7 +117,7 @@ function Investment(props){
             </div>
             <div className="tr">
               <div className="td l"><FormattedMessage id="investment_text3"/></div>
-              <div className="td r">SEED</div>
+              <div className="td r"><FormattedMessage id="SEED"/></div>
             </div>
             <div className="tr">
               <div className="td l"><FormattedMessage id="investment_text4"/></div>

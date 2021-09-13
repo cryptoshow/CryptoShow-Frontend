@@ -54,7 +54,7 @@ export default function ContributionDialog({visible, onClose = () => false, amou
         setApproveLoading(false)
       })
       .on('error', () => {
-        message.success('fail')
+        message.error('fail')
         setApproveLoading(false)
       })
   }
