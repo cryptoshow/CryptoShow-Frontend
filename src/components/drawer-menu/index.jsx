@@ -70,7 +70,7 @@ function DrawerMenu({
           </Link>
         ))}
       </div>
-      <div className='menu-li switch_network'>
+      {/* <div className='menu-li switch_network'>
         <a
           onClick={() => {
             changeNetwork(chainId === 1 ? ChainId.BSC : ChainId.ETH).then(
@@ -82,7 +82,7 @@ function DrawerMenu({
         >
           <FormattedMessage id='header_text_5' />
         </a>
-      </div>
+      </div> */}
       <div className='menu_footer'>
         <div
           className='language'

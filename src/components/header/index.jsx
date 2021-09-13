@@ -57,7 +57,7 @@ const Header = ({ changeLanguage: changeLanguage_, language, showConnectWallet, 
               ))}
             </div>
           </div>
-          <div className='header_coin_change'>
+          {/* <div className='header_coin_change'>
             <a
               onClick={() => {
                 changeNetwork(chainId === 1 ? ChainId.BSC : ChainId.ETH).then(
@@ -69,7 +69,7 @@ const Header = ({ changeLanguage: changeLanguage_, language, showConnectWallet, 
             >
               <FormattedMessage id='header_text_5' />
             </a>
-          </div>
+          </div> */}
           <div style={{ display: 'flex', alignItems: 'center' }}>
             {
               <div
