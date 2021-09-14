@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState, useMemo } from 'react'
 import { Drawer } from 'antd'
 import 'antd/dist/antd.css'
 import './index.less'
@@ -10,6 +10,8 @@ import { connect } from 'react-redux'
 import { changeLanguage } from '../../redux/actions'
 import { languageConfig } from '../../locales/intl'
 import {formatAddress} from "../../utils";
+import BSCLogo from '../../assets/image/home/BSC_logo.svg'
+import ETHLogo from '../../assets/image/home/ETH_logo.svg'
 
 function DrawerMenu({
   account,
@@ -30,6 +32,12 @@ function DrawerMenu({
   const onClose = () => {
     setVisible(false)
   }
+
+  const [walletValue, setWalletValue] = useState(chainId === 1 ? 'ETH' : 'BSC')
+
+  useMemo(() => {
+    setWalletValue(chainId === 1 ? 'ETH' : 'BSC')
+  }, [chainId])
 
   return (
     <Drawer
@@ -70,19 +78,6 @@ function DrawerMenu({
           </Link>
         ))}
       </div>
-      {/* <div className='menu-li switch_network'>
-        <a
-          onClick={() => {
-            changeNetwork(chainId === 1 ? ChainId.BSC : ChainId.ETH).then(
-              () => {
-                console.log('切换成功')
-              }
-            )
-          }}
-        >
-          <FormattedMessage id='header_text_5' />
-        </a>
-      </div> */}
       <div className='menu_footer'>
         <div
           className='language'
@@ -157,6 +152,44 @@ function DrawerMenu({
             ></path>
           </svg>
         </a>
+        {(chainId == ChainId.BSC || chainId == ChainId.ETH) && (
+          <div className='menu_switch-wallet'>
+            <a className='menu_detail_wallet'>
+              <img src={chainId === 1 ? ETHLogo : BSCLogo} />
+              {walletValue}
+            </a>
+            <p className='menu_select_wallet_option'>
+              <a
+                className={`menu_wallet_option ${
+                  chainId == ChainId.ETH && 'menu_wallet_option_active'
+                }`}
+                onClick={() => {
+                  changeNetwork(ChainId.ETH).then(() => {
+                    console.log('切换成功！')
+                    setWalletValue('ETH')
+                  })
+                }}
+              >
+                <img src={ETHLogo} />
+                ETH
+              </a>
+              <a
+                className={`menu_wallet_option ${
+                  chainId == ChainId.BSC && 'menu_wallet_option_active'
+                }`}
+                onClick={() => {
+                  changeNetwork(ChainId.BSC).then(() => {
+                    console.log('切换成功！')
+                    setWalletValue('BSC')
+                  })
+                }}
+              >
+                <img src={BSCLogo} />
+                BSC
+              </a>
+            </p>
+          </div>
+        )}
       </div>
     </Drawer>
   )

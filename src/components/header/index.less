@@ -73,6 +73,86 @@
         }
       }
     }
+    .switch-wallet {
+      position: relative;
+      margin: 0 24px 0 10px;
+      .detail_wallet {
+        position: relative;
+        display: inline-block;
+        padding: 0 18px 0 8px;
+        height: 32px;
+        line-height: 32px;
+        font-size: 12px;
+        font-family: IBMPlexSans-Bold, IBMPlexSans;
+        font-weight: bold;
+        color: #FFF;
+        background: transparent;
+        img {
+          display: inline-block;
+          margin-right: 4px;
+          width: 24px;
+          height: 24px;
+        }
+        /* ---------- 下拉选择钱包网络 ---------- */
+        /* &:after {
+          content: '';
+          position: absolute;
+          top: 12px;
+          right: 4px;
+          width: 0;
+          height: 0;
+          border: 5px solid #fff;
+          border-left-color: transparent;
+          border-bottom-color: transparent;
+          border-right-color: transparent;
+        } */
+      }
+      /* &:hover {
+        .detail_wallet {
+          &:after {
+            top: 6px;
+            transform: rotate(180deg);
+            transition: 0.3s;
+          }
+        }
+        .select_wallet_option {
+          display: flex;
+        }
+      } */
+      .select_wallet_option {
+        position: absolute;
+        display: none;
+        margin-bottom: 0;
+        align-items: center;
+        flex-direction: column;
+        background: linear-gradient(224deg, #89E5A5 0%, #18B196 100%);;
+        border-radius: 12px;
+        overflow: hidden;
+        .wallet_option {
+          display: flex;
+          align-items: center;
+          padding: 0 18px 0 8px;
+          height: 32px;
+          line-height: 32px;
+          font-size: 12px;
+          font-family: IBMPlexSans-Bold, IBMPlexSans;
+          font-weight: bold;
+          color: #FFF;
+          img {
+            display: inline-block;
+            margin-right: 4px;
+            width: 24px;
+            height: 24px;
+          }
+          &:hover {
+            background: rgba(255, 255, 255, 0.2);
+          }
+        }
+        .wallet_option_active {
+          background: rgba(255, 255, 255, 0.2);
+        }
+      }
+    }
     .header_logo {
       width: 238px;
       height: 42px;
@@ -88,7 +168,6 @@
       color: #fff;
     }
     .language {
-      margin-right: 36px;
       width: 24px;
       height: 24px;
       cursor: pointer;

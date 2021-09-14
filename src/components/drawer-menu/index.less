@@ -93,14 +93,6 @@
       }
     }
   }
-  .switch_network {
-    padding: 0 30px;
-    a {
-      &:hover {
-          color: #172E45;
-      }
-    }
-  }
   .menu_footer {
     position: absolute;
     bottom: 0;
@@ -111,7 +103,6 @@
     height: 72px;
     border-top: 1px solid rgba(255, 255, 255, 0.1);;
     .language {
-      margin-right: 36px;
       width: 24px;
       height: 24px;
       cursor: pointer;
@@ -125,6 +116,7 @@
       }
     }
     .wallet {
+      margin: 0 18px;
       width: 24px;
       height: 24px;
       svg {
@@ -134,6 +126,88 @@
         svg {
           fill: #172E45;
         }
+      }
+    }
+  }
+  .menu_switch-wallet {
+    position: relative;
+    .menu_detail_wallet {
+      position: relative;
+      display: inline-block;
+      padding: 0 18px 0 8px;
+      height: 24px;
+      line-height: 24px;
+      font-size: 12px;
+      font-family: IBMPlexSans-Bold, IBMPlexSans;
+      font-weight: bold;
+      color: #FFF;
+      background: transparent;
+      img {
+        display: inline-block;
+        margin-right: 4px;
+        width: 24px;
+        height: 24px;
+      }
+      /* ---------- 下拉选择钱包网络 ---------- */
+      /* &:after {
+        content: '';
+        position: absolute;
+        top: 10px;
+        right: 5px;
+        width: 0;
+        height: 0;
+        border: 4px solid #fff;
+        border-left-color: transparent;
+        border-bottom-color: transparent;
+        border-right-color: transparent;
+      } */
+    }
+    /* &:hover {
+      .menu_detail_wallet {
+        &:after {
+          top: 4px;
+          transform: rotate(180deg);
+          transition: 0.3s;
+        }
+      }
+      .menu_select_wallet_option {
+        display: flex;
+      }
+    } */
+    .menu_select_wallet_option {
+      position: absolute;
+      bottom: 26px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: none;
+      margin-bottom: 0;
+      align-items: center;
+      flex-direction: column;
+      background: linear-gradient(224deg, #89E5A5 0%, #18B196 100%);;
+      border-radius: 12px;
+      overflow: hidden;
+      .menu_wallet_option {
+        display: flex;
+        align-items: center;
+        padding: 0 18px 0 8px;
+        height: 32px;
+        line-height: 32px;
+        font-size: 12px;
+        font-family: IBMPlexSans-Bold, IBMPlexSans;
+        font-weight: bold;
+        color: #FFF;
+        img {
+          display: inline-block;
+          margin-right: 4px;
+          width: 24px;
+          height: 24px;
+        }
+        &:hover {
+          background: rgba(255, 255, 255, 0.2);
+        }
+      }
+      .menu_wallet_option_active {
+        background: rgba(255, 255, 255, 0.2);
       }
     }
   }

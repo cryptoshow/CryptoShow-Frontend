@@ -1,8 +1,8 @@
-import React, {useContext, useState} from 'react'
+import React, { useContext, useState, useMemo } from 'react'
 import './index.less'
 import { Link } from 'react-router-dom'
 import { FormattedMessage } from 'react-intl'
-import {changeLanguage, changeShowConnectWall} from '../../redux/actions'
+import { changeLanguage, changeShowConnectWall } from '../../redux/actions'
 import { connect } from 'react-redux'
 import { useWeb3React } from '@web3-react/core'
 import { changeNetwork } from '../../web3/connectors'
@@ -10,9 +10,11 @@ import { ChainId } from '../../web3/address'
 import DrawerMenu from '../drawer-menu'
 import Logo from '../../assets/image/Logo.svg'
 import MenuSvg from '../../assets/image/menu.svg'
-import ConnectWallDialog from "../dialog/connect-wallet-dialog";
-import {formatAddress} from "../../utils";
+import ConnectWallDialog from '../dialog/connect-wallet-dialog'
+import { formatAddress } from '../../utils'
 import { VarContext } from '../../context'
+import BSCLogo from '../../assets/image/home/BSC_logo.svg'
+import ETHLogo from '../../assets/image/home/ETH_logo.svg'
 
 export const navList = [
   {
@@ -33,12 +35,22 @@ export const navList = [
   },
 ]
 
-const Header = ({ changeLanguage: changeLanguage_, language, showConnectWallet, changeShowConnectWall }) => {
+const Header = ({
+  changeLanguage: changeLanguage_,
+  language,
+  showConnectWallet,
+  changeShowConnectWall,
+}) => {
   // const connectWallet = useConnectWallet()
   const { chainId, active, account } = useWeb3React()
   const [visibleMenu, setVisibleMenu] = useState(false)
   const [visibleConnectWall, setVisibleConnectWall] = useState(false)
   const { balance } = useContext(VarContext)
+  const [walletValue, setWalletValue] = useState(chainId === 1 ? 'ETH' : 'BSC')
+
+  useMemo(() => {
+    setWalletValue(chainId === 1 ? 'ETH' : 'BSC')
+  }, [chainId])
 
   return (
     <>
@@ -57,19 +69,6 @@ const Header = ({ changeLanguage: changeLanguage_, language, showConnectWallet, 
               ))}
             </div>
           </div>
-          {/* <div className='header_coin_change'>
-            <a
-              onClick={() => {
-                changeNetwork(chainId === 1 ? ChainId.BSC : ChainId.ETH).then(
-                  () => {
-                    console.log('切换成功！')
-                  }
-                )
-              }}
-            >
-              <FormattedMessage id='header_text_5' />
-            </a>
-          </div> */}
           <div style={{ display: 'flex', alignItems: 'center' }}>
             {
               <div
@@ -121,6 +120,45 @@ const Header = ({ changeLanguage: changeLanguage_, language, showConnectWallet, 
                 )}
               </div>
             }
+            {(chainId == ChainId.BSC || chainId == ChainId.ETH) && (
+              <div className='switch-wallet'>
+                <a className='detail_wallet'>
+                  <img src={chainId === 1 ? ETHLogo : BSCLogo} />
+                  {walletValue}
+                </a>
+                <p className='select_wallet_option'>
+                  <a
+                    className={`wallet_option ${
+                      chainId == ChainId.ETH && 'wallet_option_active'
+                    }`}
+                    onClick={() => {
+                      changeNetwork(ChainId.ETH).then(() => {
+                        console.log('切换成功！')
+                        setWalletValue('ETH')
+                      })
+                    }}
+                  >
+                    <img src={ETHLogo} />
+                    ETH
+                  </a>
+                  <a
+                    className={`wallet_option ${
+                      chainId == ChainId.BSC && 'wallet_option_active'
+                    }`}
+                    onClick={() => {
+                      changeNetwork(ChainId.BSC).then(() => {
+                        console.log('切换成功！')
+                        setWalletValue('BSC')
+                      })
+                    }}
+                  >
+                    <img src={BSCLogo} />
+                    BSC
+                  </a>
+                </p>
+              </div>
+            )}
+
             {account ? (
               <div className='account-view'>
                 <div className='balance-box'>{balance} SHOW</div>
@@ -186,7 +224,7 @@ const Header = ({ changeLanguage: changeLanguage_, language, showConnectWallet, 
           setVisibleConnectWall,
           balance,
           changeNetwork,
-          ChainId
+          ChainId,
         }}
       />
       <ConnectWallDialog
@@ -201,9 +239,7 @@ const Header = ({ changeLanguage: changeLanguage_, language, showConnectWallet, 
     </>
   )
 }
-export default connect(
-  state => state.index, {
+export default connect((state) => state.index, {
   changeLanguage,
-    changeShowConnectWall
-}
-)(Header)
+  changeShowConnectWall,
+})(Header)
